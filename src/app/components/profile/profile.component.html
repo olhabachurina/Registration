@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h3>Личный кабинет</h3>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" type="text" formControlName="username" [disabled]="true">
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+    </div>
+  
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" formControlName="firstName" />
+    </div>
+  
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" formControlName="lastName" />
+    </div>
+  
+    <div>
+      <label for="gender">Gender:</label>
+      <input id="gender" formControlName="gender" />
+    </div>
+  
+    <button type="submit">Update Profile</button>
+  </form>
+</div>

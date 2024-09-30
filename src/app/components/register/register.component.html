@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <h3>Регистрация :</h3>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label">Логин:</label>
+      <input id="username" type="text" formControlName="username" class="form-control" required>
+      <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.touched || registerForm.get('username')?.dirty)" class="text-danger">
+        Логин обязателен.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Пароль:</label>
+      <input id="password" type="password" formControlName="password" class="form-control" required>
+      <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)" class="text-danger">
+        Пароль обязателен (не менее 6 символов).
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Подтверждение пароля:</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control" required>
+      <div *ngIf="registerForm.errors?.['mismatch'] && (registerForm.get('confirmPassword')?.touched || registerForm.get('confirmPassword')?.dirty)" class="text-danger">
+        Пароли не совпадают.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label">Имя:</label>
+      <input id="firstName" type="text" formControlName="firstName" class="form-control" required>
+      <div *ngIf="registerForm.get('firstName')?.invalid && (registerForm.get('firstName')?.touched || registerForm.get('firstName')?.dirty)" class="text-danger">
+        Имя обязательно.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Фамилия:</label>
+      <input id="lastName" type="text" formControlName="lastName" class="form-control" required>
+      <div *ngIf="registerForm.get('lastName')?.invalid && (registerForm.get('lastName')?.touched || registerForm.get('lastName')?.dirty)" class="text-danger">
+        Фамилия обязательна.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="gender" class="form-label">Пол:</label>
+      <div>
+        <input id="male" type="radio" value="m" formControlName="gender"> Мужской
+        <input id="female" type="radio" value="f" formControlName="gender"> Женский
+      </div>
+      <div *ngIf="registerForm.get('gender')?.invalid && (registerForm.get('gender')?.touched || registerForm.get('gender')?.dirty)" class="text-danger">
+        Пол обязателен.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">E-mail:</label>
+      <input id="email" type="email" formControlName="email" class="form-control" required>
+      <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)" class="text-danger">
+        Введите корректный email.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Готово</button>
+    <button type="reset" class="btn btn-secondary" (click)="onReset()">Сброс</button>
+  </form>
+</div>
